@@ -1,0 +1,66 @@
+.container {
+  background-color: var(--color-fixed-neutrals-on-background);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.discriptionContainer {
+  max-width: 400px;
+  overflow: hidden;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:  0 10rem;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.desc {
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: justify;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 2rem 2.5rem;
+  gap: 1rem;
+  font-size: 1.2rem;
+  grid-row: 3/4;
+
+  .button {
+    width: 100%;
+    background-color: var(--color-fixed-primary);
+    color: var(--color-fixed-neutrals-on-background);
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

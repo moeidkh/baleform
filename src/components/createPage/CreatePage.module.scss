@@ -1,0 +1,64 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+
+.title {
+  font-size: 1.2rem;
+}
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 2px solid transparent;
+  background-color: var(--color-neutrals-n-30);
+  line-height: 1.8rem;
+}
+
+.input:focus {
+  border-color: var(--color-fixed-primary);
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 2rem 2.5rem;
+  gap: 1rem;
+  font-size: 1.2rem;
+  grid-row: 3/4;
+
+  .button {
+    width: 100%;
+    background-color: var(--color-fixed-primary);
+    color: var(--color-fixed-neutrals-on-background);
+    border: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+

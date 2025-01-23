@@ -1,0 +1,68 @@
+@use "palette.css";
+
+:root {
+  --font-family: shabnam;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  /* prevent zoom in safari */
+  touch-action: pan-x pan-y;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-neutrals-n-00);
+  direction: rtl;
+}
+
+@media (width >= 768px) {
+  *::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 20%);
+    border-radius: 15px;
+  }
+
+  *::-webkit-scrollbar-thumb:vertical {
+    min-height: 60px;
+  }
+
+  *::-webkit-scrollbar-thumb:horizontal {
+    min-width: 60px;
+  }
+}
+
+html,
+body {
+  overscroll-behavior-y: contain;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.p {
+  display: block;
+}
