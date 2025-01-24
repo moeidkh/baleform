@@ -1,31 +1,39 @@
-import { useContext, useMemo } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FormContext } from "../../context/DataContext";
 import styles from "./Questions.module.scss";
 import Button from "../../UI/ Button";
+import { getQuestionInfo } from "../../services/api";
 
 const Questions = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const formId = (location.state?.id as string | null) ?? "";
+  const surveyId = Number(location.state?.surveyId);
+  const questionsId = location.state?.questionIds as number[];
   const { data } = useContext(FormContext);
+  const [questionsData] = useState([]);
+  const [questionIndex] = useState<number>(0);
 
-  const formData = useMemo(() => {
-    return data.find((item) => item.id === formId);
-  }, [data, formId]);
+  useEffect(() => {
+    const questionsDetails = [];
+    const fetchData = async () => {
+      if (questionsId) {
+        console.log(">>>>>>>>", questionsId);
+        questionsId.map(async (qid) => {
+          const question = await getQuestionInfo(surveyId, qid);
+          questionsDetails.push(question);
+        });
+      }
+    };
+    fetchData();
+  }, [questionsId, surveyId]);
 
-  console.log("data", data, formId, location);
+  console.log("data", data, surveyId, location);
   return (
     <div className={styles.container}>
       <div className={styles.questions}>
-        {formData && formData.questions.length > 0 ? (
-          formData.questions.map(
-            (question: {
-              title: string;
-              options: string[];
-              selectedOption?: number;
-            }) => <div>{question.title}</div>
-          )
+        {questionsData && questionsData.length > 0 ? (
+          <div>{questionsData[questionIndex].title}</div>
         ) : (
           <p className={styles.quetionsNotFound}>سوالی نداری هنوز!</p>
         )}
@@ -34,16 +42,18 @@ const Questions = () => {
         <Button
           text="اضافه کردن سوال جدید"
           type="outlined"
-          onClick={() => navigate("/createQuestion", { state: { id: formId } })}
+          onClick={() =>
+            navigate("/createQuestion", { state: { id: surveyId } })
+          }
         />
         <>
-          {(formData?.questions.length ?? 0) > 0 ? (
+          {/* {(formData?.questions.length ?? 0) > 0 ? (
             <Button
               text="ویرایش پرسشنامه"
               type="filled"
-              onClick={() => navigate("/create", { state: { id: formId } })}
+              onClick={() => navigate("/create", { state: { id: surveyId } })}
             />
-          ) : null}
+          ) : null} */}
         </>
       </div>
     </div>

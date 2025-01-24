@@ -1,10 +1,10 @@
 import React, { createContext, ReactNode, useEffect, useState } from "react";
+import { folderType, getFolders } from "../services/api";
 
 interface FormContextType {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  setData: React.Dispatch<React.SetStateAction<any[]>>;
+  data: folderType;
+  setData: React.Dispatch<React.SetStateAction<folderType>>;
 }
 export const FormContext = createContext<FormContextType | null>(null);
 
@@ -13,17 +13,20 @@ type FormType = {
 };
 
 const DataContext: React.FC<FormType> = ({ children }) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<folderType | undefined>(undefined);
 
   useEffect(() => {
     const fetchData = async () => {
-      setData([]);
+      const folder = (await getFolders()) as folderType[];
+      setData(folder[0]);
     };
     fetchData();
   }, []);
 
   useEffect(() => {
-    console.log("dataaaaaa from context");
+    if (data) {
+      console.log("dataaaaaa from context", data);
+    }
   }, [data]);
 
   return (

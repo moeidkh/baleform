@@ -8,17 +8,20 @@ const FirstPage = () => {
       <div className={styles.discriptionContainer}>
         <p className={styles.title}>سلام</p>
         <p className={styles.desc}>
-          با بله فرم میتونید فرم های خودتونو در پیامرسان بله بسازیدکه میتونید در
+          با بله فرم میتونید فرم های خودتونو در پیامرسان بله بسازید و در
           کانال ها یا گروه های خودتون پست کنید تا از جامعه یا مشتری های خودتون
           نظرسنجی کنید
         </p>
       </div>
       <div className={styles.buttonsContainer}>
-        <div className={styles.button_filled} onClick={() => console.log("history")}>
-          تاریخچه
+        <div
+          className={styles.button_filled}
+          onClick={() => naviagate("/surveys")}
+        >
+          پرسشنامه های من
         </div>
         <div className={styles.button} onClick={() => naviagate("/create")}>
-          ایجاد فرم جدید
+          ایجاد پرسشنامه جدید
         </div>
       </div>
     </div>

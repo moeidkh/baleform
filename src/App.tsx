@@ -3,12 +3,14 @@ import FirstPage from "./components/firstPage/FirstPage";
 import CreatePage from "./components/createPage/CreatePage";
 import CreateQuestion from "./components/createQuestion/CreateQuestion";
 import Questions from "./components/questions/Questions";
+import Surveys from "./components/surveys/Surveys";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<FirstPage />} />
+        <Route path="/surveys" element={<Surveys />} />
         <Route path="/create" element={<CreatePage />} />
         <Route path="/questions" element={<Questions />} />
         <Route path="/createQuestion" element={<CreateQuestion />} />
