@@ -7,7 +7,6 @@
   align-items: flex-end;
   justify-content: center;
   gap: 1rem;
-  padding: 0.5rem 1.5rem;
 }
 
 .contentContainer {
@@ -16,8 +15,8 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
+  padding: 0 1.5rem;
 }
-
 
 .title {
   font-size: 1.2rem;
@@ -36,16 +35,18 @@
   border-color: var(--color-fixed-primary);
 }
 
-.buttonContainer {
+.buttonContainer,
+.submitButtonContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 2rem 2.5rem;
+  padding: 0.5rem 1.5rem 0.75rem;
   gap: 1rem;
   font-size: 1.2rem;
   grid-row: 3/4;
+  border-top: 1px solid var(--color-neutrals-n-50);
 
   .button {
     width: 100%;
@@ -61,4 +62,3 @@
     align-items: center;
   }
 }
-

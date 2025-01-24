@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import styles from "./CreatePage.module.scss";
 import { FormContext } from "../../context/DataContext";
+import { v4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 const CreatePage = () => {
-  const { data } = useContext(FormContext);
-
+  const { data, setData } = useContext(FormContext);
   const [name, setName] = useState("");
-  console.log(">>>>>>>>>State", data);
+  const navigate = useNavigate();
+  const id = v4();
 
   return (
     <form className={styles.container} onSubmit={(e) => e.preventDefault()}>
@@ -26,8 +28,14 @@ const CreatePage = () => {
         <button
           className={styles.button}
           onClick={() => {
-            console.log(">>>>name");
-            // setData({ id: v4(), name: name, questions: [] });
+            if (name.trim().length > 0) {
+              setData([...data, { id, name: name, questions: [] }]);
+              navigate("/questions", {
+                state: { from: "/create", id },
+              });
+            } else {
+              alert("نام را وارد کنید");
+            }
           }}
         >
           ذخیره

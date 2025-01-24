@@ -22,6 +22,10 @@ const DataContext: React.FC<FormType> = ({ children }) => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.log("dataaaaaa from context");
+  }, [data]);
+
   return (
     <FormContext.Provider value={{ data, setData }}>
       {children}

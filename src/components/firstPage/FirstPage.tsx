@@ -14,11 +14,11 @@ const FirstPage = () => {
         </p>
       </div>
       <div className={styles.buttonsContainer}>
+        <div className={styles.button_filled} onClick={() => console.log("history")}>
+          تاریخچه
+        </div>
         <div className={styles.button} onClick={() => naviagate("/create")}>
           ایجاد فرم جدید
-        </div>
-        <div className={styles.button} onClick={() => console.log("history")}>
-          تاریخچه
         </div>
       </div>
     </div>

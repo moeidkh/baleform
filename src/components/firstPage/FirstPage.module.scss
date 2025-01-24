@@ -19,10 +19,10 @@
 }
 
 .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding:  0 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10rem;
 }
 
 .title {
@@ -45,22 +45,35 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 2rem 2.5rem;
+  padding: 0 1rem 1.5rem;
   gap: 1rem;
   font-size: 1.2rem;
   grid-row: 3/4;
+}
+.button {
+  width: 100%;
+  background-color: var(--color-fixed-primary);
+  color: var(--color-fixed-neutrals-on-background);
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .button {
-    width: 100%;
-    background-color: var(--color-fixed-primary);
-    color: var(--color-fixed-neutrals-on-background);
-    border: none;
-    border-radius: 1rem;
-    padding: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.button_filled,
+.button_error {
+  width: 100%;
+  color: var(--color-fixed-primary);
+  border-radius: 1rem;
+  border: 2px solid var(--color-fixed-primary);
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
